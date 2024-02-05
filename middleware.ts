@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
 
     if (redirectToChat) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       const { data: homeWorkspace, error } = await supabase
         .from("workspaces")
         .select("*")
@@ -34,6 +35,9 @@ export async function middleware(request: NextRequest) {
 =======
       return NextResponse.redirect(new URL("/chat", publicUrl(request)))
 >>>>>>> c758de0 (Squash org branch over latest main, without some of the more conflicting changes.)
+=======
+      return NextResponse.redirect(new URL(`/chat`, publicUrl(request)));
+>>>>>>> b205f74 (Add backwards compatible /chat route that redirects to the home workspace)
     }
 
     return response
