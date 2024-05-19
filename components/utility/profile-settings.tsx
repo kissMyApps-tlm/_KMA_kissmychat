@@ -731,11 +731,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
             <ThemeSwitcher />
 
             <WithTooltip
-              display={
-                <div>
-                  Download Chatbot UI 1.0 data as JSON. Import coming soon!
-                </div>
-              }
+              display={<div>huh?</div>}
               trigger={
                 <IconFileDownload
                   className="cursor-pointer hover:opacity-50"
