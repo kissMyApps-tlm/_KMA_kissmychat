@@ -1,5 +1,7 @@
+import { CHAT_SETTING_LIMITS } from "@/lib/chat-setting-limits"
 import { checkApiKey, getServerProfile } from "@/lib/server/server-chat-helpers"
 import { ChatSettings } from "@/types"
+import { VALID_ENV_KEYS } from "@/types/valid-keys"
 import { OpenAIStream, StreamingTextResponse } from "ai"
 import OpenAI from "openai"
 
@@ -13,20 +15,23 @@ export async function POST(request: Request) {
   }
 
   try {
-    const profile = await getServerProfile()
+    const API_KEY = process.env.PERPLEXITY_API_KEY as string
+    console.log("API_KEY", API_KEY)
 
-    checkApiKey(profile.perplexity_api_key, "Perplexity")
+    checkApiKey(API_KEY, "Perplexity")
 
     // Perplexity is compatible the OpenAI SDK
     const perplexity = new OpenAI({
-      apiKey: profile.perplexity_api_key || "",
+      apiKey: API_KEY || "",
       baseURL: "https://api.perplexity.ai/"
     })
 
     const response = await perplexity.chat.completions.create({
       model: chatSettings.model,
       messages,
-      stream: true
+      stream: true,
+      max_tokens:
+        CHAT_SETTING_LIMITS[chatSettings.model].MAX_TOKEN_OUTPUT_LENGTH
     })
 
     const stream = OpenAIStream(response)

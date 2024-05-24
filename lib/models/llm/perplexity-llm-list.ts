@@ -77,6 +77,15 @@ const PERPLEXITY_SONAR_MEDIUM_ONLINE_8x7B: LLM = {
   imageInput: false
 }
 
+const PERPLEXITY_SONAR_LARGE_ONLINE_32K: LLM = {
+  modelId: "llama-3-sonar-large-32k-online",
+  modelName: "Llama 3 Sonar Large 32K Online",
+  provider: "perplexity",
+  hostedId: "llama-3-sonar-large-32k-online",
+  imageInput: false,
+  platformLink: PERPLEXITY_PLATORM_LINK
+}
+
 export const PERPLEXITY_LLM_LIST: LLM[] = [
   MIXTRAL_8X7B_INSTRUCT,
   MISTRAL_7B_INSTRUCT,
@@ -84,5 +93,6 @@ export const PERPLEXITY_LLM_LIST: LLM[] = [
   PERPLEXITY_SONAR_SMALL_CHAT_7B,
   PERPLEXITY_SONAR_SMALL_ONLINE_7B,
   PERPLEXITY_SONAR_MEDIUM_CHAT_8x7B,
-  PERPLEXITY_SONAR_MEDIUM_ONLINE_8x7B
+  PERPLEXITY_SONAR_MEDIUM_ONLINE_8x7B,
+  PERPLEXITY_SONAR_LARGE_ONLINE_32K
 ]

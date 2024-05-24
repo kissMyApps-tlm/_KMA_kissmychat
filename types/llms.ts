@@ -56,6 +56,7 @@ export type PerplexityLLMID =
   | "sonar-small-online" // Sonar Small Online
   | "sonar-medium-chat" // Sonar Medium Chat
   | "sonar-medium-online" // Sonar Medium Online
+  | "llama-3-sonar-large-32k-online"
 
 export interface LLM {
   modelId: LLMID
